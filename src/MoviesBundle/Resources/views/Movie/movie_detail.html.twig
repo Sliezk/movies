@@ -1,0 +1,24 @@
+{% extends 'MoviesBundle::base.html.twig' %}
+
+{% block content %}
+
+    <div class="detailFilm">
+        <div class="imageFilm"><img src="{{ asset('img/posters/'~movies.imdbId~'.jpg') }}"></div>
+        {#<div class="ficheFilm">#}
+            <h1>{{ movies.title }}</h1>
+            Année de sortie : {{ movies.year }}<br>
+            Casting : {{ movies.cast }}<br>
+            Producteur(s) : {{ movies.directors }}<br>
+            Scénariste(s) : {{ movies.writers }}<br>
+        Durée : {{ movies.runtime }}<br>
+            Synopsys : {{ movies.plot }}<br>
+            Notes : {{ movies.rating }} ({{ movies.votes }} votes)<br>
+
+                {#
+                informations sur le film :
+                    durée, runtime
+                trailer trailerId
+                    #}
+        {#</div>#}
+    </div>
+{% endblock %}

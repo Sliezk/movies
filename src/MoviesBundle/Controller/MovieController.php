@@ -15,4 +15,20 @@ class MovieController extends Controller
             "movies" => $movies
         ]);
     }
+
+    public function detailAction($id)
+    {
+        $repo = $this->getDoctrine()->getRepository("MoviesBundle:Movie");
+        $movies = $repo->find($id);
+
+        if ($movies === null) {
+            throw $this->createNotFoundException("Ce film n'existe pas !");
+        }
+
+        return $this->render('MoviesBundle:Movie:movie_detail.html.twig', [
+            "movies" => $movies
+        ]);
+
+    }
+
 }

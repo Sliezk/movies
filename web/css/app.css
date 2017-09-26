@@ -3,6 +3,11 @@ body {
     color: white!important;
 }
 
+header ul li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
 nav ul li {
     list-style: none;
 }
@@ -24,4 +29,20 @@ footer table {
 
 footer table tr td {
     width: 400px;
+}
+
+.affiches {
+    text-align: center;
+}
+
+.detailFilm {
+    width: 1000px;
+}
+
+.imageFilm {
+    width: 350px;
+}
+
+.ficheFilm {
+    width: 500px;
 }
