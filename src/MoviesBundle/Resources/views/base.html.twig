@@ -62,24 +62,27 @@
     <hr>
 
     <footer>
-        <nav>
-            <ul>
-                <li><a href="">Accueil</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">CGU</a></li>
-                <li><a href="">À propos</a></li>
-                <li><a href="">Les événements</a></li>
-                <li><a href="">Ajouter événement</a></li>
-
+        <table>
+            <tr>
+                <td><a href="">Accueil</a></td>
+                <td><a href="">FAQ</a></td>
+                <td><a href="">CGU</a></td>
+            </tr>
+            <tr>
+                <td><a href="">À propos</a></td>
+                <td><a href="">Les événements</a></td>
+                <td><a href="">Ajouter événement</a></td>
+            </tr>
+            <tr>
                 {% if app.user %}
-                    <li><a href="">Mon compte</a></li>
-                    <li><a href="">Déconnexion</a></li>
+                    <td><a href="">Mon compte</a></td>
+                    <td><a href="">Déconnexion</a></td>
                 {% else %}
-                    <li><a href="">Connexion</a></li>
-                    <li><a href="">Inscription</a></li>
+                    <td><a href="">Connexion</a></td>
+                    <td><a href="">Inscription</a></td>
                 {% endif %}
-            </ul>
-        </nav>
+            </tr>
+        </table>
     </footer>
 </div>
 </body>

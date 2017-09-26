@@ -17,3 +17,11 @@ nav ul li a:hover {
     color: #ffa500!important;
     text-shadow: 1px 1px 1px black;
 }
+
+footer table {
+    margin-left: 40px;
+}
+
+footer table tr td {
+    width: 400px;
+}

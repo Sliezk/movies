@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Repository;
+namespace MoviesBundle\Repository;
 
 /**
  * MovieRepository
@@ -10,4 +10,22 @@ namespace AppBundle\Repository;
  */
 class MovieRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findNewestMovies($resultNumber = 50) {
+
+        // Version DQL
+        $dql = "SELECT m
+                FROM MoviesBundle:Movie m
+                ORDER BY m.year DESC";
+
+        $query = $this->getEntityManager()->createQuery($dql);
+
+        // équivalent du limit (ou top)
+        $query->setMaxResults($resultNumber); // équivalent du limit (ou top)
+        $query->setFirstResult(0); // équivalent de l'offset
+        $movies = $query->getResult();
+        return $movies;
+
+    }
+
 }

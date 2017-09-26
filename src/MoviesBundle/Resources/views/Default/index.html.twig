@@ -1,1 +1,9 @@
 {% extends 'MoviesBundle::base.html.twig' %}
+
+{% block content %}
+    {% for movie in movies %}
+        <div>
+            <a href="" title="Toutes les informations sur ce film"> {{ movie.imdbld }} </a>
+        </div>
+    {% endfor %}
+{% endblock %}
