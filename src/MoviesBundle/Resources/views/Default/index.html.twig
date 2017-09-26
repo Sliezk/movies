@@ -2,6 +2,8 @@
 
 {% block content %}
 
+    <h1 class="titre">Les 50 derniers films</h1><br>
+
     <div class="affiches">
     {% for movie in movies %}
         <a class="affiche" href="{{ path('movie_detail', {'id':movie.id}) }}" title="Toutes les informations sur ce film"> <img src="{{ asset('img/posters/'~movie.imdbId~'.jpg') }}" alt="{{ movie.title }}" width="200px"></a>

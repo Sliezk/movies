@@ -5,3 +5,15 @@ homepage:
 movie_detail:
     path:     /details/{id}
     defaults: { _controller: MoviesBundle:Movie:detail }
+
+movie_admin:
+    path:     /admin/gestion_films
+    defaults: { _controller: MoviesBundle:AdminMovie:manage }
+
+movie_edit:
+    path:     /admin/modifier_film
+    defaults: { _controller: MoviesBundle:AdminMovie:editMovie }
+
+movie_delete:
+    path:     /admin/supprimer_film
+    defaults: { _controller: MoviesBundle:AdminMovie:deleteMovie }

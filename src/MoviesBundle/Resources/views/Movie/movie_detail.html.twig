@@ -10,13 +10,17 @@
             Casting : {{ movies.cast }}<br>
             Producteur(s) : {{ movies.directors }}<br>
             Scénariste(s) : {{ movies.writers }}<br>
-        Durée : {{ movies.runtime }}<br>
+            Durée : {{ movies.runtime }}<br>
             Synopsys : {{ movies.plot }}<br>
-            Notes : {{ movies.rating }} ({{ movies.votes }} votes)<br>
-
+            Notes : {{ movies.rating }} ({{ movies.votes }} votes)<br><br>
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/{{ movies.trailerId }}" frameborder="0" allowfullscreen></iframe>
+        {#<div><object type="application/x-shockwave-flash" width="425" height="355" data="https://www.youtube.com/watch?v=MF14JJkOrSI"> #}{#https://www.youtube.com/watch?v=~{{ movies.trailerId }}~">#}
+                {#<param name="movie" value="https://www.youtube.com/watch?v=~{{ movies.trailerId }}~" />#}
+                {#<param name="wmode" value="transparent" />#}
+            {#</object></div>#}
+        {# https://www.youtube.com/watch?v= #}
                 {#
                 informations sur le film :
-                    durée, runtime
                 trailer trailerId
                     #}
         {#</div>#}

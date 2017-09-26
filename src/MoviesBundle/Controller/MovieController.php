@@ -9,7 +9,7 @@ class MovieController extends Controller
     public function indexAction()
     {
         $repo = $this->getDoctrine()->getRepository("MoviesBundle:Movie");
-        $movies = $repo->findNewestMovies();
+        $movies = $repo->findMovies();
 
         return $this->render('MoviesBundle:Default:index.html.twig', [
             "movies" => $movies

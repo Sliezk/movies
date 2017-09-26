@@ -23,6 +23,10 @@ nav ul li a:hover {
     text-shadow: 1px 1px 1px black;
 }
 
+.titre {
+    text-align: center;
+}
+
 footer table {
     margin-left: 40px;
 }
@@ -45,4 +49,24 @@ footer table tr td {
 
 .ficheFilm {
     width: 500px;
+}
+
+.pageGestion table tr td, .pageGestion table tr th {
+    border: solid 1px white;
+}
+
+.pageGestion table tr th, .pageGestion table tr td {
+    padding: 0 5px;
+}
+
+.pageGestion .boutons {
+    text-align: center;
+}
+
+.pageGestion .boutons a {
+    margin: 10px;
+}
+
+.pageGestion .ajout {
+    float: right;
 }

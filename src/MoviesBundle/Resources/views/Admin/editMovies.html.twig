@@ -1,0 +1,51 @@
+{% extends 'MoviesBundle::base.html.twig' %}
+
+{% block content %}
+
+    <div class="pageGestion">
+        <h1>Gestion des films</h1>
+
+        <a class="btn btn-success ajout">Ajouter un film</a>
+
+        <br><br>
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Année</th>
+                <th>Acteurs</th>
+                <th>Producteurs</th>
+                <th>Scénaristes</th>
+                <th>Histoire</th>
+                <th>Note</th>
+                <th>Votes</th>
+                <th>Durée</th>
+                <th>trailerId</th>
+                <th>Modifier/Supprimer</th>
+            </tr>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.year }}</td>
+                <td>{{ movie.cast }}</td>
+                <td>{{ movie.directors }}</td>
+                <td>{{ movie.writers }}</td>
+                <td>{{ movie.plot }}</td>
+                <td>{{ movie.rating }}</td>
+                <td>{{ movie.votes }}</td>
+                <td>{{ movie.runtime }}</td>
+                <td>{{ movie.trailerId }}</td>
+                <td class="boutons">
+                    <a class="btn btn-warning glyphicon glyphicon-pencil" href="{{ path('movie_edit', {'id':movie.id}) }}"></a>
+                    <a class="btn btn-danger glyphicon glyphicon-remove" href="{{ path('movie_delete', {'id':movie.id}) }}"></a>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+        </table>
+    </div>
+
+{% endblock %}
