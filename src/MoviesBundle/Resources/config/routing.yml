@@ -10,10 +10,14 @@ movie_admin:
     path:     /admin/gestion_films
     defaults: { _controller: MoviesBundle:AdminMovie:manage }
 
+movie_create:
+    path:     /admin/ajouter_film
+    defaults: { _controller: MoviesBundle:AdminMovie:createMovie }
+
 movie_edit:
-    path:     /admin/modifier_film
+    path:     /admin/modifier_film/{id}
     defaults: { _controller: MoviesBundle:AdminMovie:editMovie }
 
 movie_delete:
-    path:     /admin/supprimer_film
+    path:     /admin/supprimer_film/{id}
     defaults: { _controller: MoviesBundle:AdminMovie:deleteMovie }

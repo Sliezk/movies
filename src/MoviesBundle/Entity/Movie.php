@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace MoviesBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -460,7 +460,7 @@ class Movie
      *
      * @return Movie
      */
-    public function addGenre(\AppBundle\Entity\Genre $genre)
+    public function addGenre(\MoviesBundle\Entity\Genre $genre)
     {
         $this->genres[] = $genre;
 
@@ -472,7 +472,7 @@ class Movie
      *
      * @param \MoviesBundle\Entity\Genre $genre
      */
-    public function removeGenre(\AppBundle\Entity\Genre $genre)
+    public function removeGenre(\MoviesBundle\Entity\Genre $genre)
     {
         $this->genres->removeElement($genre);
     }

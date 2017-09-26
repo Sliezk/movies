@@ -1,0 +1,17 @@
+{% extends 'MoviesBundle::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Modification film
+{% endblock %}
+
+{% block content %}
+    <h1 class="titreUpdate">Modification film</h1>
+    <br>
+
+    {#
+        affiche le formulaire
+    #}
+    {{ form(form, {'attr': {'novalidate':'novalidate'}}) }}
+
+
+{% endblock %}
