@@ -495,38 +495,4 @@ class Movie
     {
         return $this->genres;
     }
-
-    /**
-     * Add review
-     *
-     * @param \MoviesBundle\Entity\Review $review
-     *
-     * @return Movie
-     */
-    public function addReview(\MoviesBundle\Entity\Review $review)
-    {
-        $this->reviews[] = $review;
-
-        return $this;
-    }
-
-    /**
-     * Remove review
-     *
-     * @param \MoviesBundle\Entity\Review $review
-     */
-    public function removeReview(\MoviesBundle\Entity\Review $review)
-    {
-        $this->reviews->removeElement($review);
-    }
-
-    /**
-     * Get reviews
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getReviews()
-    {
-        return $this->reviews;
-    }
 }
