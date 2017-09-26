@@ -1,0 +1,19 @@
+body {
+    background-color: #313131!important;
+    color: white!important;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: white!important;
+    text-shadow: 1px 1px 1px black;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: #ffa500!important;
+    text-shadow: 1px 1px 1px black;
+}
