@@ -74,3 +74,13 @@ footer table tr td {
 .pageGestion .ajout {
     float: right;
 }
+
+.review {
+    border: 1px solid white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background-color: #218BC3;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
