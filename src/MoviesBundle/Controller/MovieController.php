@@ -7,13 +7,30 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class MovieController extends Controller
 {
-    public function indexAction()
+    public function indexAction($page = 1)
     {
+
+        $nbMoviesParPage = 50;
+        $offset = ($page - 1) * $nbMoviesParPage;
         $repo = $this->getDoctrine()->getRepository("MoviesBundle:Movie");
-        $movies = $repo->findMovies();
+
+        $total = $repo->nbMovies();
+
+        $movies = $repo->findMovies($nbMoviesParPage, $offset);
+
+        $pagination = array(
+            'page' => $page,
+            'nbPages' => ceil($total / $nbMoviesParPage),
+            'nomRoute' => 'homepage',
+            'paramsRoute' => array(),
+            'offset' => $offset,
+            'totalFilms' => $total
+        );
+
 
         return $this->render('MoviesBundle:Default:index.html.twig', [
-            "movies" => $movies
+            "movies" => $movies,
+            "pagination" => $pagination
         ]);
 
     }

@@ -1,5 +1,5 @@
 homepage:
-    path:     /
+    path:     /home/{page}
     defaults: { _controller: MoviesBundle:Movie:index }
 
 movie_detail:

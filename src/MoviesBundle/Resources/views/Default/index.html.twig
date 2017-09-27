@@ -9,4 +9,54 @@
         <a class="affiche" href="{{ path('movie_detail', {'id':movie.id}) }}" title="Toutes les informations sur ce film"> <img src="{{ asset('img/posters/'~movie.imdbId~'.jpg') }}" alt="{{ movie.title }}" width="200px"></a>
     {% endfor %}
     </div>
+
+    {% if pagination.nbPages > 0 %}
+
+        <div class="pagination">
+            <table>
+
+                <tr>
+
+                    {% if pagination.page > 1 %}
+                        <td>
+                            <a class="premierePage" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': 1})) }}">
+                                <<
+                            </a>
+                        </td>
+                        <td>
+                            <a class="pagePrecedente" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.page-1})) }}">
+                                <
+                            </a>
+                        </td>
+                    {% endif %}
+
+                    <td>
+                        <div class="pageActuelle">Affichage des films #{{ pagination.offset }} à
+                                {% if pagination.page < pagination.nbPages %}
+                                    {{ pagination.offset+49 }}
+                                {% else %}
+                                    {{ pagination.totalFilms }}
+                                {% endif %}
+                                sur {{ pagination.totalFilms }} films</div>
+                    </td>
+
+                    {% if pagination.page < pagination.nbPages %}
+                        <td>
+                            <a class="pageSuivante" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.page+1})) }}">
+                                >
+                            </a>
+                        </td>
+                        <td>
+                            <a class="dernierePage" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.nbPages})) }}">
+                                >>
+                            </a>
+                        </td>
+
+                    {% endif %}
+                </tr>
+
+            </table>
+        </div>
+
+    {% endif %}
 {% endblock %}
