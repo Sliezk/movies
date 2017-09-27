@@ -4,12 +4,12 @@
 
     <h1 class="titre">Les 50 derniers films</h1><br>
 
-    <form action="{{ path('search', {'idGenre':genre.id}) }}" method="GET">
+    <form action="{{ path('search') }}" method="GET">
         <h4>Rechercher un film</h4>
-        <input class="recherche_text" type="text" placeholder=" Rechercher un film">
+        <input class="recherche_text" type="text" placeholder=" Rechercher un film" name="keyword">
         <select class="recherche_select" name="categorie">
             {% for genre in genres %}
-                <option value="{{ genre.name }}">{{ genre.name }}</option>
+                <option value="{{ genre.id }}" name="{{ genre.name }}">{{ genre.name }}</option>
             {% endfor %}
         </select>
         <input class="btn btn-primary" type="submit" value="Rechercher">

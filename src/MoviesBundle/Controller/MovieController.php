@@ -46,9 +46,10 @@ class MovieController extends Controller
     {
         $repo = $this->getDoctrine()->getRepository("MoviesBundle:Movie");
 
-        $idGenre = $request->query->get('idGenre');
+        $idGenre = $request->query->get('categorie');
+        $keyword = $request->query->get('keyword');
 
-        $movies = $repo->findByCategory($idGenre);
+        $movies = $repo->findByCategory($idGenre, $keyword);
 
         return $this->render('MoviesBundle:Default:search.html.twig', [
             "movies" => $movies

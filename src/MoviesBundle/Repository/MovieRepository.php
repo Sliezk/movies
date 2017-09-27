@@ -49,16 +49,19 @@ class MovieRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
-    public function findByCategory($idGenre)
+    public function findByCategory($idGenre, $keyword)
     {
 
         $qb = $this->createQueryBuilder('m');
-        $qb->addSelect('g')
-            ->join('MoviesBundle:Genre', 'g')
-            ->where('g.id = :idGenre');
+        $qb->join('m.genres', 'g')
+           ->where('m.title like :keyword')
+           ->orWhere('m.cast like :keyword')
+           ->orWhere('m.directors like :keyword')
+           ->orWhere('m.writers like :keyword')
+           ->andWhere('g.id = :idGenre');
         $query = $qb->getQuery();
 
-        $query->setParameters(["idGenre" => $idGenre]);
+        $query->setParameters(["idGenre" => $idGenre, "keyword" => '%'.$keyword.'%']);
 
         $movies = $query->getResult();
 
