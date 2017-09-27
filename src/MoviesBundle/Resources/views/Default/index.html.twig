@@ -4,6 +4,19 @@
 
     <h1 class="titre">Les 50 derniers films</h1><br>
 
+    <form action="{{ path('search', {'idGenre':genre.id}) }}" method="GET">
+        <h4>Rechercher un film</h4>
+        <input class="recherche_text" type="text" placeholder=" Rechercher un film">
+        <select class="recherche_select" name="categorie">
+            {% for genre in genres %}
+                <option value="{{ genre.name }}">{{ genre.name }}</option>
+            {% endfor %}
+        </select>
+        <input class="btn btn-primary" type="submit" value="Rechercher">
+    </form>
+
+    <br><br>
+
     <div class="affiches">
     {% for movie in movies %}
         <a class="affiche" href="{{ path('movie_detail', {'id':movie.id}) }}" title="Toutes les informations sur ce film"> <img src="{{ asset('img/posters/'~movie.imdbId~'.jpg') }}" alt="{{ movie.title }}" width="200px"></a>
@@ -17,42 +30,47 @@
 
                 <tr>
 
+                    <td>
                     {% if pagination.page > 1 %}
-                        <td>
-                            <a class="premierePage" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': 1})) }}">
-                                <<
-                            </a>
-                        </td>
-                        <td>
-                            <a class="pagePrecedente" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.page-1})) }}">
-                                <
-                            </a>
-                        </td>
+                        <a class="premierePage btn btn-primary" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': 1})) }}" title="Retour à la première page">
+                            <<
+                        </a>
                     {% endif %}
+                    </td>
+                    <td>
+                    {% if pagination.page > 1 %}
+                        <a class="pagePrecedente btn btn-primary" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.page-1})) }}" title="Page précédente">
+                            <
+                        </a>
+                    {% endif %}
+                    </td>
 
                     <td>
                         <div class="pageActuelle">Affichage des films #{{ pagination.offset }} à
-                                {% if pagination.page < pagination.nbPages %}
-                                    {{ pagination.offset+49 }}
-                                {% else %}
-                                    {{ pagination.totalFilms }}
-                                {% endif %}
-                                sur {{ pagination.totalFilms }} films</div>
+                            {% if pagination.page < pagination.nbPages %}
+                                {{ pagination.offset+49 }}
+                            {% else %}
+                                {{ pagination.totalFilms }}
+                            {% endif %}
+                            sur {{ pagination.totalFilms }} films
+                        </div>
                     </td>
 
+                    <td>
                     {% if pagination.page < pagination.nbPages %}
-                        <td>
-                            <a class="pageSuivante" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.page+1})) }}">
-                                >
-                            </a>
-                        </td>
-                        <td>
-                            <a class="dernierePage" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.nbPages})) }}">
-                                >>
-                            </a>
-                        </td>
+                        <a class="pageSuivante btn btn-primary" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.page+1})) }}" title="Page suivante">
+                            >
+                        </a>
+                    {% endif %}
+                    </td>
+                    <td>
+                    {% if pagination.page < pagination.nbPages %}
+                        <a class="dernierePage btn btn-primary" href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.nbPages})) }}" title="Aller à la dernière page">
+                            >>
+                        </a>
 
                     {% endif %}
+                    </td>
                 </tr>
 
             </table>

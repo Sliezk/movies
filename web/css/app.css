@@ -31,6 +31,20 @@ nav ul li a:hover {
     text-align: center;
 }
 
+.recherche_text, .recherche_select {
+    height: 30px;
+    color: black;
+}
+
+.recherche_text {
+    width: 250px;
+    border-radius: 5px;
+}
+
+.recherche_select {
+    border-radius: 5px;
+}
+
 footer table {
     margin-left: 40px;
 }
@@ -63,6 +77,18 @@ footer table tr td {
     padding: 0 5px;
 }
 
+.pageGestion th {
+    background-color: #333333;
+}
+
+.pageGestion tr:nth-child(odd) {
+    background-color: #6E6E6E;
+}
+
+.pageGestion tr:nth-child(even) {
+    background-color: darkgrey;
+}
+
 .pageGestion .boutons {
     text-align: center;
 }
@@ -85,6 +111,16 @@ footer table tr td {
     text-shadow: 1px 1px 2px black;
 }
 
-.pagePrecedente {
+.pagination td {
+    width: 50px;
+    text-align: center;
+}
 
+.pagination a {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.pageActuelle {
+    width: 940px;
 }

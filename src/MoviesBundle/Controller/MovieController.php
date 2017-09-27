@@ -4,6 +4,7 @@ namespace MoviesBundle\Controller;
 
 use MoviesBundle\Entity\Review;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class MovieController extends Controller
 {
@@ -18,6 +19,8 @@ class MovieController extends Controller
 
         $movies = $repo->findMovies($nbMoviesParPage, $offset);
 
+        $genres = $repo->genre();
+
         $pagination = array(
             'page' => $page,
             'nbPages' => ceil($total / $nbMoviesParPage),
@@ -30,7 +33,25 @@ class MovieController extends Controller
 
         return $this->render('MoviesBundle:Default:index.html.twig', [
             "movies" => $movies,
-            "pagination" => $pagination
+            "pagination" => $pagination,
+            "genres" => $genres
+        ]);
+
+    }
+
+
+
+
+    public function searchAction(Request $request)
+    {
+        $repo = $this->getDoctrine()->getRepository("MoviesBundle:Movie");
+
+        $idGenre = $request->query->get('idGenre');
+
+        $movies = $repo->findByCategory($idGenre);
+
+        return $this->render('MoviesBundle:Default:search.html.twig', [
+            "movies" => $movies
         ]);
 
     }

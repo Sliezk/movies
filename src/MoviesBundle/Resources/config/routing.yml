@@ -21,3 +21,7 @@ movie_edit:
 movie_delete:
     path:     /admin/supprimer_film/{id}
     defaults: { _controller: MoviesBundle:AdminMovie:deleteMovie }
+
+search:
+    path:     /resultat_recherche
+    defaults: { _controller: MoviesBundle:Movie:search }
